@@ -1,0 +1,19 @@
+.impact-wall .card {
+  border-radius: 15px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.impact-wall .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes slideLeft { from {opacity:0; transform:translateX(-50px);} to {opacity:1; transform:translateX(0);} }
+@keyframes slideRight { from {opacity:0; transform:translateX(50px);} to {opacity:1; transform:translateX(0);} }
+@keyframes slideBottom { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+.animate-left { animation: slideLeft 0.7s ease forwards; }
+.animate-right { animation: slideRight 0.7s ease forwards; }
+.animate-bottom { animation: slideBottom 0.7s ease forwards; }
+.animate-fade { animation: fadeIn 1s ease forwards; }
