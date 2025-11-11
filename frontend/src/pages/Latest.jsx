@@ -5,18 +5,20 @@ import PodcastPlayer from "../components/PodcastPlayer";
 
 const Latest = () => {
   return (
-    <div>
-      <h2 className="mb-4 text-center">Latest Updates</h2>
-      <section className="mb-5">
-        <h4>Blogs</h4>
-        <BlogList />
-      </section>
-      <section className="mb-5">
-        <h4>Survivor Stories</h4>
+    <div className="container px-0">
+      <h2 className="text-center my-4">Latest Updates</h2>
+
+      <section className="py-3">
         <StoryList />
       </section>
-      <section>
-        <h4>Podcasts</h4>
+
+      <section className="py-1">
+        <h2 className="mt-5 mb-3">Blogs</h2>
+        <BlogList />
+      </section>
+
+      <section className="py-1">
+        <h2 className="mt-5 mb-3">Podcasts</h2>
         <PodcastPlayer />
       </section>
     </div>

@@ -1,19 +1,75 @@
 import React from "react";
+import styled from "styled-components";
 
-const podcasts = [
-  { title: "Crisis Response Insights", src: "/podcasts/podcast1.mp3" },
-  { title: "Volunteer Stories", src: "/podcasts/podcast2.mp3" },
+const podcastData = [
+  {
+    title: "Podcast Card 1",
+    episodes: [
+      "https://open.spotify.com/embed/episode/4VRWGt3TzPeOstEDjDx0jr",
+      "https://open.spotify.com/embed/episode/3MKdFaBNxY2gnuvhayHDX7",
+      "https://open.spotify.com/embed/episode/5kvYCa2ZFauPAh8IlJk0iz",
+      "https://open.spotify.com/embed/episode/1LokwWun2z25nMa3rcUfti",
+      
+    ],
+  },
+  {
+    title: "Podcast Card 2",
+    episodes: [
+      "https://open.spotify.com/embed/episode/3YmN5SHGaMNt2RsBTwXFpt",
+      "https://open.spotify.com/embed/episode/1T8ws1PHZfnZkklweGlNfd",
+      "https://open.spotify.com/embed/episode/18585HFemTI6Qc8GphSvNA",
+    ],
+  },
+  // Add more cards similarly
 ];
 
-const PodcastPlayer = () => (
-  <div>
-    {podcasts.map((p, idx) => (
-      <div key={idx} className="mb-3">
-        <h6>{p.title}</h6>
-        <audio controls src={p.src} className="w-100" />
-      </div>
-    ))}
-  </div>
-);
+const SpotifyGrid = () => {
+  return (
+    <GridWrapper>
+      {podcastData.map((card, idx) => (
+        <Card key={idx}>
+          <CardTitle>{card.title}</CardTitle>
+          {card.episodes.map((ep, i) => (
+            <EpisodeWrapper key={i}>
+              <iframe
+                src={ep}
+                width="100%"
+                height="80"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                style={{ borderRadius: "12px" }}
+                title={`episode-${i}`}
+              ></iframe>
+            </EpisodeWrapper>
+          ))}
+        </Card>
+      ))}
+    </GridWrapper>
+  );
+};
 
-export default PodcastPlayer;
+export default SpotifyGrid;
+
+// Styled Components
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 20px;
+`;
+
+const Card = styled.div`
+  background-color: #121212; // Spotify dark theme
+  color: white;
+  border-radius: 12px;
+  padding: 15px;
+`;
+
+const CardTitle = styled.h3`
+  margin-bottom: 10px;
+`;
+
+const EpisodeWrapper = styled.div`
+  margin-bottom: 10px;
+`;

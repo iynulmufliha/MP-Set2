@@ -85,6 +85,7 @@ const About = () => {
         </p>
         <button style={ctaButtonStyle} className="cta-button">Get Involved</button>
       </div>
+      
     </div>
   );
 };

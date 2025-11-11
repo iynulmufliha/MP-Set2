@@ -1,19 +1,132 @@
-.impact-wall .card {
-  border-radius: 15px;
-  transition: transform 0.4s, box-shadow 0.4s;
+/* Page Background */
+body {
+  background: linear-gradient(135deg, #0f2f3d, #1a3b5c, #125e40);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: #b0e0e6; /* soft light blue for default text */
 }
-.impact-wall .card:hover {
+
+/* Glass Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05); /* very subtle glass */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* Animations */
-@keyframes slideLeft { from {opacity:0; transform:translateX(-50px);} to {opacity:1; transform:translateX(0);} }
-@keyframes slideRight { from {opacity:0; transform:translateX(50px);} to {opacity:1; transform:translateX(0);} }
-@keyframes slideBottom { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+/* Glass Buttons */
+.glass-btn {
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #7fd1c4;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.glass-btn:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
 
-.animate-left { animation: slideLeft 0.7s ease forwards; }
-.animate-right { animation: slideRight 0.7s ease forwards; }
-.animate-bottom { animation: slideBottom 0.7s ease forwards; }
-.animate-fade { animation: fadeIn 1s ease forwards; }
+/* Glass Inputs */
+.glass-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 25px;
+  padding: 8px 12px;
+  color: #b0e0e6;
+}
+.glass-input::placeholder {
+  color: #7fd1c4;
+}
+.glass-input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Stats Card Texts */
+.stats-value {
+  color: #b0e0e6;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.stats-label {
+  color: #7fd1c4;
+  font-size: 0.85rem;
+}
+
+/* Stories Carousel */
+.stories-container {
+  scroll-behavior: smooth;
+}
+.story-card {
+  min-width: 250px;
+  max-width: 250px;
+  height: 320px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.story-card img {
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+.story-card .card-body {
+  flex-grow: 1;
+  padding: 10px;
+}
+.story-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #b0e0e6;
+}
+.story-description {
+  font-size: 0.85rem;
+  color: #7fd1c4;
+}
+
+/* Carousel Buttons */
+.carousel-btn-left, .carousel-btn-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.3);
+  border: none;
+  color: #7fd1c4;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+.carousel-btn-left:hover, .carousel-btn-right:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+/* Milestone CTA */
+.milestone-text {
+  color: #b0e0e6;
+}
+.milestone-subtext {
+  color: #7fd1c4;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08); /* very subtle transparency */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* faint border */
+  backdrop-filter: blur(12px); /* the blur effect */
+  -webkit-backdrop-filter: blur(12px); /* for Safari */
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* subtle shadow */
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}

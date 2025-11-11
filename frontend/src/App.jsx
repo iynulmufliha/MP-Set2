@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Home from "./pages/Home"; 
 import About from "./pages/About";
 import Latest from "./pages/Latest";
 import ImpactWall from "./pages/ImpactWall";
@@ -16,18 +17,83 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <div className="container my-4">
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/latest" element={<Latest />} />
-          <Route path="/impact" element={<ImpactWall />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={isAuthenticated ? <Navigate to="/profile" /> : <Login />} />
-          <Route path="/register" element={isAuthenticated ? <Navigate to="/profile" /> : <Register />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
-        </Routes>
-      </div>
+
+      <Routes>
+        {/* Full-width Home page */}
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+
+        {/* All other pages inside Bootstrap container */}
+        <Route
+          path="/about"
+          element={
+            <div className="container my-4">
+              <About />
+            </div>
+          }
+        />
+        <Route
+          path="/latest"
+          element={
+            <div className="container my-4">
+              <Latest />
+            </div>
+          }
+        />
+        <Route
+          path="/impact"
+          element={
+            <div className="container my-4">
+              <ImpactWall />
+            </div>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <div className="container my-4">
+              <Dashboard />
+            </div>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            isAuthenticated ? (
+              <Navigate to="/profile" />
+            ) : (
+              <div className="container my-4">
+                <Login />
+              </div>
+            )
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            isAuthenticated ? (
+              <Navigate to="/profile" />
+            ) : (
+              <div className="container my-4">
+                <Register />
+              </div>
+            )
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            isAuthenticated ? (
+              <div className="container my-4">
+                <Profile />
+              </div>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+      </Routes>
+
       <Footer />
     </Router>
   );
